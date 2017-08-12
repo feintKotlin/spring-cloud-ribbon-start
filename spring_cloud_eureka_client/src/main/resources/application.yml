@@ -1,0 +1,26 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${eureka.instance.appname}:${server.port}
+spring:
+  application:
+    name: client-provider
+---
+spring:
+  profiles: client1
+server:
+  port: 8888
+eureka:
+  instance:
+    appname: client_provider
+
+---
+spring:
+  profiles: client2
+server:
+  port: 8889
+eureka:
+  instance:
+    appname: client_provider
